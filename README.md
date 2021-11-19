@@ -20,7 +20,7 @@ limitations under the License.
 
 # Binary
 
-[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] [![dependencies][dependencies-image]][dependencies-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
 
 > Apply a binary callback to strided input array elements and assign results to elements in a strided output array.
 
@@ -15382,8 +15382,12 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/strided-base-binary/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/strided-base-binary?branch=main
 
+<!--
+
 [dependencies-image]: https://img.shields.io/david/stdlib-js/strided-base-binary.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/strided-base-binary/main
+
+-->
 
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
