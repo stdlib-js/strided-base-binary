@@ -48,13 +48,13 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import binary from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-binary@deno/mod.js';
+import binary from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-binary@v0.2.0-deno/mod.js';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-binary@deno/mod.js';
+import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-binary@v0.2.0-deno/mod.js';
 ```
 
 #### binary( arrays, shape, strides, fcn )
@@ -189,7 +189,7 @@ binary.ndarray( [ x, y, z ], [ N ], [ 2, 2, -1 ], [ 1, 1, z.length-1 ], add );
 var discreteUniform = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform' ).factory;
 import filledarrayBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-filled-by@deno/mod.js';
 import filledarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-filled@deno/mod.js';
-import binary from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-binary@deno/mod.js';
+import binary from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-binary@v0.2.0-deno/mod.js';
 
 function add( x, y ) {
     return x + y;
