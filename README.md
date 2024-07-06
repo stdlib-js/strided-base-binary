@@ -248,6 +248,7 @@ Character codes for data types:
 
 <!-- charcodes -->
 
+-   **x**: `bool` (boolean).
 -   **c**: `complex64` (single-precision floating-point complex number).
 -   **z**: `complex128` (double-precision floating-point complex number).
 -   **f**: `float32` (single-precision floating-point number).
@@ -365,12 +366,12 @@ int64_t strides[] = { 1, 1, 1 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint8_t add( uint8_t x, uint8_t y ) {
+static uint8_t fcn( uint8_t x, uint8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_b( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_b( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -406,12 +407,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint8_t add( uint8_t x, uint8_t y ) {
+static uint8_t fcn( uint8_t x, uint8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_c( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -430,7 +431,7 @@ void stdlib_strided_bb_c( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -448,12 +449,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bb_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -472,7 +473,7 @@ void stdlib_strided_bb_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -490,12 +491,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bb_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -531,12 +532,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint8_t add( uint8_t x, uint8_t y ) {
+static uint8_t fcn( uint8_t x, uint8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_d( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -572,12 +573,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -613,12 +614,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint8_t add( uint8_t x, uint8_t y ) {
+static uint8_t fcn( uint8_t x, uint8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_f( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -654,12 +655,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -695,12 +696,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -736,12 +737,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint8_t add( uint8_t x, uint8_t y ) {
+static uint8_t fcn( uint8_t x, uint8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_i( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -777,12 +778,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -818,12 +819,12 @@ int64_t strides[] = { 1, 1, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint8_t add( uint8_t x, uint8_t y ) {
+static uint8_t fcn( uint8_t x, uint8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_k( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_k( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -859,12 +860,12 @@ int64_t strides[] = { 1, 1, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int16_t add( int16_t x, int16_t y ) {
+static int16_t fcn( int16_t x, int16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_k_as_kk_k( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_k_as_kk_k( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -900,12 +901,12 @@ int64_t strides[] = { 1, 1, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint8_t add( uint8_t x, uint8_t y ) {
+static uint8_t fcn( uint8_t x, uint8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_t( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_t( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -941,12 +942,12 @@ int64_t strides[] = { 1, 1, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint16_t add( uint16_t x, uint16_t y ) {
+static uint16_t fcn( uint16_t x, uint16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_t_as_tt_t( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_t_as_tt_t( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -982,12 +983,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint8_t add( uint8_t x, uint8_t y ) {
+static uint8_t fcn( uint8_t x, uint8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_u( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_u( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1023,12 +1024,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint32_t add( uint32_t x, uint32_t y ) {
+static uint32_t fcn( uint32_t x, uint32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_u_as_uu_u( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_u_as_uu_u( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1064,12 +1065,12 @@ int64_t strides[] = { 1, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint8_t add( uint8_t x, uint8_t y ) {
+static uint8_t fcn( uint8_t x, uint8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bb_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1088,7 +1089,7 @@ void stdlib_strided_bb_z( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -1106,12 +1107,12 @@ int64_t strides[] = { 1, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bb_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bb_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1130,7 +1131,7 @@ void stdlib_strided_bb_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -1148,12 +1149,12 @@ int64_t strides[] = { 1, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bc_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_bc_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1172,7 +1173,7 @@ void stdlib_strided_bc_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -1190,12 +1191,12 @@ int64_t strides[] = { 1, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bc_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bc_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1214,7 +1215,7 @@ void stdlib_strided_bc_c_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -1232,12 +1233,12 @@ int64_t strides[] = { 1, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bc_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bc_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1273,12 +1274,12 @@ int64_t strides[] = { 1, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bd_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_bd_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1297,7 +1298,7 @@ void stdlib_strided_bd_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -1315,12 +1316,12 @@ int64_t strides[] = { 1, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bd_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bd_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1339,7 +1340,7 @@ void stdlib_strided_bd_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -1357,12 +1358,12 @@ int64_t strides[] = { 1, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bf_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_bf_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1381,7 +1382,7 @@ void stdlib_strided_bf_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -1399,12 +1400,12 @@ int64_t strides[] = { 1, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bf_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bf_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1440,12 +1441,12 @@ int64_t strides[] = { 1, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bf_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_bf_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1481,12 +1482,12 @@ int64_t strides[] = { 1, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bf_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_bf_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1522,12 +1523,12 @@ int64_t strides[] = { 1, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bf_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_bf_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1546,7 +1547,7 @@ void stdlib_strided_bf_f_as_ff_f( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -1564,12 +1565,12 @@ int64_t strides[] = { 1, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bf_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bf_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1605,12 +1606,12 @@ int64_t strides[] = { 1, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bi_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_bi_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1646,12 +1647,12 @@ int64_t strides[] = { 1, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bi_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_bi_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1670,7 +1671,7 @@ void stdlib_strided_bi_i_as_ii_i( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -1688,12 +1689,12 @@ int64_t strides[] = { 1, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bi_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bi_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1712,7 +1713,7 @@ void stdlib_strided_bi_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -1730,12 +1731,12 @@ int64_t strides[] = { 1, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bk_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_bk_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1754,7 +1755,7 @@ void stdlib_strided_bk_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -1772,12 +1773,12 @@ int64_t strides[] = { 1, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bk_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bk_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1813,12 +1814,12 @@ int64_t strides[] = { 1, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bk_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_bk_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1854,12 +1855,12 @@ int64_t strides[] = { 1, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bk_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_bk_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1895,12 +1896,12 @@ int64_t strides[] = { 1, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bk_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_bk_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1936,12 +1937,12 @@ int64_t strides[] = { 1, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bk_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_bk_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -1977,12 +1978,12 @@ int64_t strides[] = { 1, 2, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int16_t add( int16_t x, int16_t y ) {
+static int16_t fcn( int16_t x, int16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bk_k_as_kk_k( arrays, shape, strides, (void *)add );
+stdlib_strided_bk_k_as_kk_k( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2001,7 +2002,7 @@ void stdlib_strided_bk_k_as_kk_k( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -2019,12 +2020,12 @@ int64_t strides[] = { 1, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bk_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bk_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2043,7 +2044,7 @@ void stdlib_strided_bk_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -2061,12 +2062,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bs_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_bs_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2085,7 +2086,7 @@ void stdlib_strided_bs_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -2103,12 +2104,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bs_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bs_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2144,12 +2145,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bs_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_bs_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2185,12 +2186,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bs_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_bs_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2226,12 +2227,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bs_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_bs_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2267,12 +2268,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bs_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_bs_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2308,12 +2309,12 @@ int64_t strides[] = { 1, 1, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int16_t add( int16_t x, int16_t y ) {
+static int16_t fcn( int16_t x, int16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bs_k_as_kk_k( arrays, shape, strides, (void *)add );
+stdlib_strided_bs_k_as_kk_k( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2332,7 +2333,7 @@ void stdlib_strided_bs_k_as_kk_k( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -2350,12 +2351,12 @@ int64_t strides[] = { 1, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bs_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bs_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2374,7 +2375,7 @@ void stdlib_strided_bs_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -2392,12 +2393,12 @@ int64_t strides[] = { 1, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bt_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_bt_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2416,7 +2417,7 @@ void stdlib_strided_bt_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -2434,12 +2435,12 @@ int64_t strides[] = { 1, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bt_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bt_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2475,12 +2476,12 @@ int64_t strides[] = { 1, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bt_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_bt_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2516,12 +2517,12 @@ int64_t strides[] = { 1, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bt_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_bt_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2557,12 +2558,12 @@ int64_t strides[] = { 1, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bt_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_bt_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2598,12 +2599,12 @@ int64_t strides[] = { 1, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bt_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_bt_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2639,12 +2640,12 @@ int64_t strides[] = { 1, 2, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint16_t add( uint16_t x, uint16_t y ) {
+static uint16_t fcn( uint16_t x, uint16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bt_t_as_tt_t( arrays, shape, strides, (void *)add );
+stdlib_strided_bt_t_as_tt_t( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2680,12 +2681,12 @@ int64_t strides[] = { 1, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint32_t add( uint32_t x, uint32_t y ) {
+static uint32_t fcn( uint32_t x, uint32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bt_u_as_uu_u( arrays, shape, strides, (void *)add );
+stdlib_strided_bt_u_as_uu_u( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2704,7 +2705,7 @@ void stdlib_strided_bt_u_as_uu_u( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -2722,12 +2723,12 @@ int64_t strides[] = { 1, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bt_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bt_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2763,12 +2764,12 @@ int64_t strides[] = { 1, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bu_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_bu_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2804,12 +2805,12 @@ int64_t strides[] = { 1, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint32_t add( uint32_t x, uint32_t y ) {
+static uint32_t fcn( uint32_t x, uint32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_bu_u_as_uu_u( arrays, shape, strides, (void *)add );
+stdlib_strided_bu_u_as_uu_u( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2828,7 +2829,7 @@ void stdlib_strided_bu_u_as_uu_u( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -2846,12 +2847,12 @@ int64_t strides[] = { 1, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bu_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bu_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2870,7 +2871,7 @@ void stdlib_strided_bu_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -2888,12 +2889,12 @@ int64_t strides[] = { 1, 16, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_bz_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_bz_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2912,7 +2913,7 @@ void stdlib_strided_bz_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -2930,12 +2931,12 @@ int64_t strides[] = { 8, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cb_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_cb_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2954,7 +2955,7 @@ void stdlib_strided_cb_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -2972,12 +2973,12 @@ int64_t strides[] = { 8, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cb_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_cb_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -2996,7 +2997,7 @@ void stdlib_strided_cb_c_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3014,12 +3015,12 @@ int64_t strides[] = { 8, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cb_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_cb_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3038,7 +3039,7 @@ void stdlib_strided_cb_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3056,12 +3057,12 @@ int64_t strides[] = { 8, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3080,7 +3081,7 @@ void stdlib_strided_cc_c( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3098,12 +3099,12 @@ int64_t strides[] = { 8, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cc_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_cc_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3122,7 +3123,7 @@ void stdlib_strided_cc_c_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3140,12 +3141,12 @@ int64_t strides[] = { 8, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cc_z( arrays, shape, strides, (void *)add );
+stdlib_strided_cc_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3164,7 +3165,7 @@ void stdlib_strided_cc_z( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3182,12 +3183,12 @@ int64_t strides[] = { 8, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cc_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_cc_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3206,7 +3207,7 @@ void stdlib_strided_cc_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3224,12 +3225,12 @@ int64_t strides[] = { 8, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cd_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_cd_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3248,7 +3249,7 @@ void stdlib_strided_cd_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3266,12 +3267,12 @@ int64_t strides[] = { 8, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cf_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_cf_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3290,7 +3291,7 @@ void stdlib_strided_cf_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3308,12 +3309,12 @@ int64_t strides[] = { 8, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cf_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_cf_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3332,7 +3333,7 @@ void stdlib_strided_cf_c_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3350,12 +3351,12 @@ int64_t strides[] = { 8, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cf_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_cf_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3374,7 +3375,7 @@ void stdlib_strided_cf_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3392,12 +3393,12 @@ int64_t strides[] = { 8, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ci_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ci_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3416,7 +3417,7 @@ void stdlib_strided_ci_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3434,12 +3435,12 @@ int64_t strides[] = { 8, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ck_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_ck_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3458,7 +3459,7 @@ void stdlib_strided_ck_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3476,12 +3477,12 @@ int64_t strides[] = { 8, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ck_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ck_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3500,7 +3501,7 @@ void stdlib_strided_ck_c_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3518,12 +3519,12 @@ int64_t strides[] = { 8, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ck_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ck_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3542,7 +3543,7 @@ void stdlib_strided_ck_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3560,12 +3561,12 @@ int64_t strides[] = { 8, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cs_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_cs_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3584,7 +3585,7 @@ void stdlib_strided_cs_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3602,12 +3603,12 @@ int64_t strides[] = { 8, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cs_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_cs_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3626,7 +3627,7 @@ void stdlib_strided_cs_c_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3644,12 +3645,12 @@ int64_t strides[] = { 8, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cs_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_cs_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3668,7 +3669,7 @@ void stdlib_strided_cs_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3686,12 +3687,12 @@ int64_t strides[] = { 8, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ct_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_ct_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3710,7 +3711,7 @@ void stdlib_strided_ct_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3728,12 +3729,12 @@ int64_t strides[] = { 8, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ct_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ct_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3752,7 +3753,7 @@ void stdlib_strided_ct_c_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3770,12 +3771,12 @@ int64_t strides[] = { 8, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ct_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ct_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3794,7 +3795,7 @@ void stdlib_strided_ct_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3812,12 +3813,12 @@ int64_t strides[] = { 8, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cu_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_cu_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3836,7 +3837,7 @@ void stdlib_strided_cu_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3854,12 +3855,12 @@ int64_t strides[] = { 8, 16, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_cz_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_cz_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3895,12 +3896,12 @@ int64_t strides[] = { 8, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_db_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_db_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3919,7 +3920,7 @@ void stdlib_strided_db_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3937,12 +3938,12 @@ int64_t strides[] = { 8, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_db_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_db_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -3961,7 +3962,7 @@ void stdlib_strided_db_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -3979,12 +3980,12 @@ int64_t strides[] = { 8, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_dc_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_dc_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4020,12 +4021,12 @@ int64_t strides[] = { 8, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4061,12 +4062,12 @@ int64_t strides[] = { 8, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_dd_z( arrays, shape, strides, (void *)add );
+stdlib_strided_dd_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4085,7 +4086,7 @@ void stdlib_strided_dd_z( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -4103,12 +4104,12 @@ int64_t strides[] = { 8, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_dd_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_dd_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4144,12 +4145,12 @@ int64_t strides[] = { 8, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_df_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_df_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4168,7 +4169,7 @@ void stdlib_strided_df_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -4186,12 +4187,12 @@ int64_t strides[] = { 8, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_df_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_df_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4227,12 +4228,12 @@ int64_t strides[] = { 8, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_di_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_di_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4251,7 +4252,7 @@ void stdlib_strided_di_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -4269,12 +4270,12 @@ int64_t strides[] = { 8, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_di_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_di_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4310,12 +4311,12 @@ int64_t strides[] = { 8, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_dk_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_dk_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4334,7 +4335,7 @@ void stdlib_strided_dk_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -4352,12 +4353,12 @@ int64_t strides[] = { 8, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_dk_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_dk_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4393,12 +4394,12 @@ int64_t strides[] = { 8, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ds_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ds_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4417,7 +4418,7 @@ void stdlib_strided_ds_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -4435,12 +4436,12 @@ int64_t strides[] = { 8, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ds_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ds_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4476,12 +4477,12 @@ int64_t strides[] = { 8, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_dt_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_dt_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4500,7 +4501,7 @@ void stdlib_strided_dt_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -4518,12 +4519,12 @@ int64_t strides[] = { 8, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_dt_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_dt_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4559,12 +4560,12 @@ int64_t strides[] = { 8, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_du_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_du_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4583,7 +4584,7 @@ void stdlib_strided_du_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -4601,12 +4602,12 @@ int64_t strides[] = { 8, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_du_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_du_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4625,7 +4626,7 @@ void stdlib_strided_du_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -4643,12 +4644,12 @@ int64_t strides[] = { 8, 16, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_dz_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_dz_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4667,7 +4668,7 @@ void stdlib_strided_dz_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -4685,12 +4686,12 @@ int64_t strides[] = { 4, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fb_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_fb_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4709,7 +4710,7 @@ void stdlib_strided_fb_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -4727,12 +4728,12 @@ int64_t strides[] = { 4, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fb_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_fb_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4768,12 +4769,12 @@ int64_t strides[] = { 4, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_fb_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_fb_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4809,12 +4810,12 @@ int64_t strides[] = { 4, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_fb_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_fb_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4850,12 +4851,12 @@ int64_t strides[] = { 4, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_fb_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_fb_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4874,7 +4875,7 @@ void stdlib_strided_fb_f_as_ff_f( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -4892,12 +4893,12 @@ int64_t strides[] = { 4, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fb_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_fb_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4916,7 +4917,7 @@ void stdlib_strided_fb_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -4934,12 +4935,12 @@ int64_t strides[] = { 4, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fc_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_fc_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -4958,7 +4959,7 @@ void stdlib_strided_fc_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -4976,12 +4977,12 @@ int64_t strides[] = { 4, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fc_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_fc_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5000,7 +5001,7 @@ void stdlib_strided_fc_c_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -5018,12 +5019,12 @@ int64_t strides[] = { 4, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fc_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_fc_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5059,12 +5060,12 @@ int64_t strides[] = { 4, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_fd_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_fd_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5083,7 +5084,7 @@ void stdlib_strided_fd_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -5101,12 +5102,12 @@ int64_t strides[] = { 4, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fd_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_fd_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5142,12 +5143,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ff_c( arrays, shape, strides, (void *)add );
+stdlib_strided_ff_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5166,7 +5167,7 @@ void stdlib_strided_ff_c( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -5184,12 +5185,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ff_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_ff_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5208,7 +5209,7 @@ void stdlib_strided_ff_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -5226,12 +5227,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ff_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ff_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5267,12 +5268,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ff_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ff_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5308,12 +5309,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ff_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ff_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5349,12 +5350,12 @@ int64_t strides[] = { 4, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5390,12 +5391,12 @@ int64_t strides[] = { 4, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ff_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ff_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5431,12 +5432,12 @@ int64_t strides[] = { 4, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ff_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ff_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5455,7 +5456,7 @@ void stdlib_strided_ff_z( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -5473,12 +5474,12 @@ int64_t strides[] = { 4, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ff_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ff_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5514,12 +5515,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_fi_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_fi_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5538,7 +5539,7 @@ void stdlib_strided_fi_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -5556,12 +5557,12 @@ int64_t strides[] = { 4, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fi_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_fi_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5580,7 +5581,7 @@ void stdlib_strided_fi_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -5598,12 +5599,12 @@ int64_t strides[] = { 4, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fk_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_fk_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5622,7 +5623,7 @@ void stdlib_strided_fk_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -5640,12 +5641,12 @@ int64_t strides[] = { 4, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fk_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_fk_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5681,12 +5682,12 @@ int64_t strides[] = { 4, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_fk_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_fk_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5722,12 +5723,12 @@ int64_t strides[] = { 4, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_fk_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_fk_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5763,12 +5764,12 @@ int64_t strides[] = { 4, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_fk_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_fk_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5787,7 +5788,7 @@ void stdlib_strided_fk_f_as_ff_f( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -5805,12 +5806,12 @@ int64_t strides[] = { 4, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fk_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_fk_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5829,7 +5830,7 @@ void stdlib_strided_fk_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -5847,12 +5848,12 @@ int64_t strides[] = { 4, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fs_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_fs_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5871,7 +5872,7 @@ void stdlib_strided_fs_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -5889,12 +5890,12 @@ int64_t strides[] = { 4, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fs_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_fs_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5930,12 +5931,12 @@ int64_t strides[] = { 4, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_fs_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_fs_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -5971,12 +5972,12 @@ int64_t strides[] = { 4, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_fs_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_fs_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6012,12 +6013,12 @@ int64_t strides[] = { 4, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_fs_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_fs_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6036,7 +6037,7 @@ void stdlib_strided_fs_f_as_ff_f( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -6054,12 +6055,12 @@ int64_t strides[] = { 4, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fs_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_fs_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6078,7 +6079,7 @@ void stdlib_strided_fs_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -6096,12 +6097,12 @@ int64_t strides[] = { 4, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ft_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_ft_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6120,7 +6121,7 @@ void stdlib_strided_ft_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -6138,12 +6139,12 @@ int64_t strides[] = { 4, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ft_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ft_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6179,12 +6180,12 @@ int64_t strides[] = { 4, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ft_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ft_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6220,12 +6221,12 @@ int64_t strides[] = { 4, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ft_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ft_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6261,12 +6262,12 @@ int64_t strides[] = { 4, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ft_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_ft_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6285,7 +6286,7 @@ void stdlib_strided_ft_f_as_ff_f( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -6303,12 +6304,12 @@ int64_t strides[] = { 4, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ft_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ft_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6344,12 +6345,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_fu_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_fu_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6368,7 +6369,7 @@ void stdlib_strided_fu_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -6386,12 +6387,12 @@ int64_t strides[] = { 4, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fu_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_fu_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6410,7 +6411,7 @@ void stdlib_strided_fu_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -6428,12 +6429,12 @@ int64_t strides[] = { 4, 16, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_fz_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_fz_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6469,12 +6470,12 @@ int64_t strides[] = { 4, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ib_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ib_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6510,12 +6511,12 @@ int64_t strides[] = { 4, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ib_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_ib_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6534,7 +6535,7 @@ void stdlib_strided_ib_i_as_ii_i( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -6552,12 +6553,12 @@ int64_t strides[] = { 4, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ib_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ib_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6576,7 +6577,7 @@ void stdlib_strided_ib_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -6594,12 +6595,12 @@ int64_t strides[] = { 4, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ic_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ic_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6635,12 +6636,12 @@ int64_t strides[] = { 4, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_id_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_id_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6659,7 +6660,7 @@ void stdlib_strided_id_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -6677,12 +6678,12 @@ int64_t strides[] = { 4, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_id_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_id_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6718,12 +6719,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_if_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_if_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6742,7 +6743,7 @@ void stdlib_strided_if_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -6760,12 +6761,12 @@ int64_t strides[] = { 4, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_if_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_if_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6801,12 +6802,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ii_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ii_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6842,12 +6843,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ii_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ii_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6883,12 +6884,12 @@ int64_t strides[] = { 4, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6924,12 +6925,12 @@ int64_t strides[] = { 4, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ii_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ii_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -6948,7 +6949,7 @@ void stdlib_strided_ii_z( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -6966,12 +6967,12 @@ int64_t strides[] = { 4, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ii_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ii_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7007,12 +7008,12 @@ int64_t strides[] = { 4, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ik_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ik_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7048,12 +7049,12 @@ int64_t strides[] = { 4, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ik_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_ik_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7072,7 +7073,7 @@ void stdlib_strided_ik_i_as_ii_i( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -7090,12 +7091,12 @@ int64_t strides[] = { 4, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ik_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ik_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7131,12 +7132,12 @@ int64_t strides[] = { 4, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_is_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_is_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7172,12 +7173,12 @@ int64_t strides[] = { 4, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_is_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_is_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7196,7 +7197,7 @@ void stdlib_strided_is_i_as_ii_i( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -7214,12 +7215,12 @@ int64_t strides[] = { 4, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_is_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_is_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7255,12 +7256,12 @@ int64_t strides[] = { 4, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_it_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_it_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7296,12 +7297,12 @@ int64_t strides[] = { 4, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_it_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_it_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7320,7 +7321,7 @@ void stdlib_strided_it_i_as_ii_i( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -7338,12 +7339,12 @@ int64_t strides[] = { 4, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_it_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_it_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7379,12 +7380,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_iu_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_iu_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7403,7 +7404,7 @@ void stdlib_strided_iu_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -7421,12 +7422,12 @@ int64_t strides[] = { 4, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_iu_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_iu_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7445,7 +7446,7 @@ void stdlib_strided_iu_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -7463,12 +7464,12 @@ int64_t strides[] = { 4, 16, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_iz_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_iz_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7487,7 +7488,7 @@ void stdlib_strided_iz_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -7505,12 +7506,12 @@ int64_t strides[] = { 2, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kb_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_kb_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7529,7 +7530,7 @@ void stdlib_strided_kb_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -7547,12 +7548,12 @@ int64_t strides[] = { 2, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kb_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_kb_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7588,12 +7589,12 @@ int64_t strides[] = { 2, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kb_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_kb_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7629,12 +7630,12 @@ int64_t strides[] = { 2, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kb_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_kb_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7670,12 +7671,12 @@ int64_t strides[] = { 2, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kb_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_kb_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7711,12 +7712,12 @@ int64_t strides[] = { 2, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kb_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_kb_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7752,12 +7753,12 @@ int64_t strides[] = { 2, 1, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int16_t add( int16_t x, int16_t y ) {
+static int16_t fcn( int16_t x, int16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kb_k_as_kk_k( arrays, shape, strides, (void *)add );
+stdlib_strided_kb_k_as_kk_k( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7776,7 +7777,7 @@ void stdlib_strided_kb_k_as_kk_k( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -7794,12 +7795,12 @@ int64_t strides[] = { 2, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kb_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_kb_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7818,7 +7819,7 @@ void stdlib_strided_kb_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -7836,12 +7837,12 @@ int64_t strides[] = { 2, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kc_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_kc_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7860,7 +7861,7 @@ void stdlib_strided_kc_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -7878,12 +7879,12 @@ int64_t strides[] = { 2, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kc_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_kc_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7902,7 +7903,7 @@ void stdlib_strided_kc_c_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -7920,12 +7921,12 @@ int64_t strides[] = { 2, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kc_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_kc_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7961,12 +7962,12 @@ int64_t strides[] = { 2, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kd_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_kd_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -7985,7 +7986,7 @@ void stdlib_strided_kd_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -8003,12 +8004,12 @@ int64_t strides[] = { 2, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kd_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_kd_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8027,7 +8028,7 @@ void stdlib_strided_kd_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -8045,12 +8046,12 @@ int64_t strides[] = { 2, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kf_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_kf_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8069,7 +8070,7 @@ void stdlib_strided_kf_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -8087,12 +8088,12 @@ int64_t strides[] = { 2, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kf_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_kf_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8128,12 +8129,12 @@ int64_t strides[] = { 2, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kf_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_kf_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8169,12 +8170,12 @@ int64_t strides[] = { 2, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kf_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_kf_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8210,12 +8211,12 @@ int64_t strides[] = { 2, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kf_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_kf_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8234,7 +8235,7 @@ void stdlib_strided_kf_f_as_ff_f( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -8252,12 +8253,12 @@ int64_t strides[] = { 2, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kf_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_kf_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8293,12 +8294,12 @@ int64_t strides[] = { 2, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ki_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ki_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8334,12 +8335,12 @@ int64_t strides[] = { 2, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ki_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_ki_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8358,7 +8359,7 @@ void stdlib_strided_ki_i_as_ii_i( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -8376,12 +8377,12 @@ int64_t strides[] = { 2, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ki_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ki_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8417,12 +8418,12 @@ int64_t strides[] = { 2, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int16_t add( int16_t x, int16_t y ) {
+static int16_t fcn( int16_t x, int16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kk_c( arrays, shape, strides, (void *)add );
+stdlib_strided_kk_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8441,7 +8442,7 @@ void stdlib_strided_kk_c( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -8459,12 +8460,12 @@ int64_t strides[] = { 2, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kk_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_kk_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8483,7 +8484,7 @@ void stdlib_strided_kk_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -8501,12 +8502,12 @@ int64_t strides[] = { 2, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kk_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_kk_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8542,12 +8543,12 @@ int64_t strides[] = { 2, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int16_t add( int16_t x, int16_t y ) {
+static int16_t fcn( int16_t x, int16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kk_d( arrays, shape, strides, (void *)add );
+stdlib_strided_kk_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8583,12 +8584,12 @@ int64_t strides[] = { 2, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kk_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_kk_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8624,12 +8625,12 @@ int64_t strides[] = { 2, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int16_t add( int16_t x, int16_t y ) {
+static int16_t fcn( int16_t x, int16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kk_f( arrays, shape, strides, (void *)add );
+stdlib_strided_kk_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8665,12 +8666,12 @@ int64_t strides[] = { 2, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kk_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_kk_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8706,12 +8707,12 @@ int64_t strides[] = { 2, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kk_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_kk_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8747,12 +8748,12 @@ int64_t strides[] = { 2, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int16_t add( int16_t x, int16_t y ) {
+static int16_t fcn( int16_t x, int16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kk_i( arrays, shape, strides, (void *)add );
+stdlib_strided_kk_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8788,12 +8789,12 @@ int64_t strides[] = { 2, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kk_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_kk_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8829,12 +8830,12 @@ int64_t strides[] = { 2, 2, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int16_t add( int16_t x, int16_t y ) {
+static int16_t fcn( int16_t x, int16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kk_k( arrays, shape, strides, (void *)add );
+stdlib_strided_kk_k( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8870,12 +8871,12 @@ int64_t strides[] = { 2, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int16_t add( int16_t x, int16_t y ) {
+static int16_t fcn( int16_t x, int16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kk_z( arrays, shape, strides, (void *)add );
+stdlib_strided_kk_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8894,7 +8895,7 @@ void stdlib_strided_kk_z( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -8912,12 +8913,12 @@ int64_t strides[] = { 2, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kk_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_kk_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8936,7 +8937,7 @@ void stdlib_strided_kk_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -8954,12 +8955,12 @@ int64_t strides[] = { 2, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ks_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_ks_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -8978,7 +8979,7 @@ void stdlib_strided_ks_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -8996,12 +8997,12 @@ int64_t strides[] = { 2, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ks_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ks_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9037,12 +9038,12 @@ int64_t strides[] = { 2, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ks_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ks_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9078,12 +9079,12 @@ int64_t strides[] = { 2, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ks_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ks_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9119,12 +9120,12 @@ int64_t strides[] = { 2, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ks_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_ks_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9160,12 +9161,12 @@ int64_t strides[] = { 2, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ks_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_ks_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9201,12 +9202,12 @@ int64_t strides[] = { 2, 1, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int16_t add( int16_t x, int16_t y ) {
+static int16_t fcn( int16_t x, int16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ks_k_as_kk_k( arrays, shape, strides, (void *)add );
+stdlib_strided_ks_k_as_kk_k( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9225,7 +9226,7 @@ void stdlib_strided_ks_k_as_kk_k( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -9243,12 +9244,12 @@ int64_t strides[] = { 2, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ks_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ks_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9284,12 +9285,12 @@ int64_t strides[] = { 2, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kt_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_kt_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9325,12 +9326,12 @@ int64_t strides[] = { 2, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_kt_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_kt_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9349,7 +9350,7 @@ void stdlib_strided_kt_i_as_ii_i( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -9367,12 +9368,12 @@ int64_t strides[] = { 2, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kt_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_kt_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9408,12 +9409,12 @@ int64_t strides[] = { 2, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ku_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ku_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9432,7 +9433,7 @@ void stdlib_strided_ku_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -9450,12 +9451,12 @@ int64_t strides[] = { 2, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ku_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ku_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9474,7 +9475,7 @@ void stdlib_strided_ku_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -9492,12 +9493,12 @@ int64_t strides[] = { 2, 16, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_kz_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_kz_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9516,7 +9517,7 @@ void stdlib_strided_kz_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -9534,12 +9535,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_sb_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_sb_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9558,7 +9559,7 @@ void stdlib_strided_sb_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -9576,12 +9577,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_sb_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_sb_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9617,12 +9618,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_sb_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_sb_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9658,12 +9659,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_sb_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_sb_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9699,12 +9700,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_sb_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_sb_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9740,12 +9741,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_sb_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_sb_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9781,12 +9782,12 @@ int64_t strides[] = { 1, 1, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int16_t add( int16_t x, int16_t y ) {
+static int16_t fcn( int16_t x, int16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_sb_k_as_kk_k( arrays, shape, strides, (void *)add );
+stdlib_strided_sb_k_as_kk_k( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9805,7 +9806,7 @@ void stdlib_strided_sb_k_as_kk_k( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -9823,12 +9824,12 @@ int64_t strides[] = { 1, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_sb_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_sb_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9847,7 +9848,7 @@ void stdlib_strided_sb_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -9865,12 +9866,12 @@ int64_t strides[] = { 1, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_sc_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_sc_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9889,7 +9890,7 @@ void stdlib_strided_sc_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -9907,12 +9908,12 @@ int64_t strides[] = { 1, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_sc_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_sc_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9931,7 +9932,7 @@ void stdlib_strided_sc_c_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -9949,12 +9950,12 @@ int64_t strides[] = { 1, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_sc_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_sc_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -9990,12 +9991,12 @@ int64_t strides[] = { 1, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_sd_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_sd_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10014,7 +10015,7 @@ void stdlib_strided_sd_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -10032,12 +10033,12 @@ int64_t strides[] = { 1, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_sd_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_sd_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10056,7 +10057,7 @@ void stdlib_strided_sd_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -10074,12 +10075,12 @@ int64_t strides[] = { 1, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_sf_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_sf_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10098,7 +10099,7 @@ void stdlib_strided_sf_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -10116,12 +10117,12 @@ int64_t strides[] = { 1, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_sf_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_sf_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10157,12 +10158,12 @@ int64_t strides[] = { 1, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_sf_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_sf_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10198,12 +10199,12 @@ int64_t strides[] = { 1, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_sf_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_sf_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10239,12 +10240,12 @@ int64_t strides[] = { 1, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_sf_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_sf_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10263,7 +10264,7 @@ void stdlib_strided_sf_f_as_ff_f( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -10281,12 +10282,12 @@ int64_t strides[] = { 1, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_sf_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_sf_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10322,12 +10323,12 @@ int64_t strides[] = { 1, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_si_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_si_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10363,12 +10364,12 @@ int64_t strides[] = { 1, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_si_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_si_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10387,7 +10388,7 @@ void stdlib_strided_si_i_as_ii_i( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -10405,12 +10406,12 @@ int64_t strides[] = { 1, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_si_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_si_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10429,7 +10430,7 @@ void stdlib_strided_si_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -10447,12 +10448,12 @@ int64_t strides[] = { 1, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_sk_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_sk_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10471,7 +10472,7 @@ void stdlib_strided_sk_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -10489,12 +10490,12 @@ int64_t strides[] = { 1, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_sk_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_sk_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10530,12 +10531,12 @@ int64_t strides[] = { 1, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_sk_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_sk_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10571,12 +10572,12 @@ int64_t strides[] = { 1, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_sk_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_sk_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10612,12 +10613,12 @@ int64_t strides[] = { 1, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_sk_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_sk_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10653,12 +10654,12 @@ int64_t strides[] = { 1, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_sk_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_sk_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10694,12 +10695,12 @@ int64_t strides[] = { 1, 2, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int16_t add( int16_t x, int16_t y ) {
+static int16_t fcn( int16_t x, int16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_sk_k_as_kk_k( arrays, shape, strides, (void *)add );
+stdlib_strided_sk_k_as_kk_k( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10718,7 +10719,7 @@ void stdlib_strided_sk_k_as_kk_k( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -10736,12 +10737,12 @@ int64_t strides[] = { 1, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_sk_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_sk_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10777,12 +10778,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int8_t add( int8_t x, int8_t y ) {
+static int8_t fcn( int8_t x, int8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ss_c( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10801,7 +10802,7 @@ void stdlib_strided_ss_c( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -10819,12 +10820,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ss_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10843,7 +10844,7 @@ void stdlib_strided_ss_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -10861,12 +10862,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ss_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10902,12 +10903,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int8_t add( int8_t x, int8_t y ) {
+static int8_t fcn( int8_t x, int8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ss_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10943,12 +10944,12 @@ int64_t strides[] = { 1, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ss_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -10984,12 +10985,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int8_t add( int8_t x, int8_t y ) {
+static int8_t fcn( int8_t x, int8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ss_f( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11025,12 +11026,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ss_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11066,12 +11067,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ss_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11107,12 +11108,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int8_t add( int8_t x, int8_t y ) {
+static int8_t fcn( int8_t x, int8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ss_i( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11148,12 +11149,12 @@ int64_t strides[] = { 1, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ss_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11189,12 +11190,12 @@ int64_t strides[] = { 1, 1, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int8_t add( int8_t x, int8_t y ) {
+static int8_t fcn( int8_t x, int8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ss_k( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_k( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11230,12 +11231,12 @@ int64_t strides[] = { 1, 1, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int16_t add( int16_t x, int16_t y ) {
+static int16_t fcn( int16_t x, int16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ss_k_as_kk_k( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_k_as_kk_k( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11271,12 +11272,12 @@ int64_t strides[] = { 1, 1, 1 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int8_t add( int8_t x, int8_t y ) {
+static int8_t fcn( int8_t x, int8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ss_s( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_s( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11312,12 +11313,12 @@ int64_t strides[] = { 1, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int8_t add( int8_t x, int8_t y ) {
+static int8_t fcn( int8_t x, int8_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ss_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11336,7 +11337,7 @@ void stdlib_strided_ss_z( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -11354,12 +11355,12 @@ int64_t strides[] = { 1, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ss_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ss_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11395,12 +11396,12 @@ int64_t strides[] = { 1, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_st_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_st_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11436,12 +11437,12 @@ int64_t strides[] = { 1, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_st_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_st_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11460,7 +11461,7 @@ void stdlib_strided_st_i_as_ii_i( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -11478,12 +11479,12 @@ int64_t strides[] = { 1, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_st_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_st_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11519,12 +11520,12 @@ int64_t strides[] = { 1, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_su_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_su_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11543,7 +11544,7 @@ void stdlib_strided_su_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -11561,12 +11562,12 @@ int64_t strides[] = { 1, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_su_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_su_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11585,7 +11586,7 @@ void stdlib_strided_su_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -11603,12 +11604,12 @@ int64_t strides[] = { 1, 16, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_sz_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_sz_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11627,7 +11628,7 @@ void stdlib_strided_sz_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -11645,12 +11646,12 @@ int64_t strides[] = { 2, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tb_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_tb_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11669,7 +11670,7 @@ void stdlib_strided_tb_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -11687,12 +11688,12 @@ int64_t strides[] = { 2, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tb_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_tb_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11728,12 +11729,12 @@ int64_t strides[] = { 2, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tb_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_tb_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11769,12 +11770,12 @@ int64_t strides[] = { 2, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tb_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_tb_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11810,12 +11811,12 @@ int64_t strides[] = { 2, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tb_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_tb_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11851,12 +11852,12 @@ int64_t strides[] = { 2, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tb_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_tb_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11892,12 +11893,12 @@ int64_t strides[] = { 2, 1, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint16_t add( uint16_t x, uint16_t y ) {
+static uint16_t fcn( uint16_t x, uint16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tb_t_as_tt_t( arrays, shape, strides, (void *)add );
+stdlib_strided_tb_t_as_tt_t( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11933,12 +11934,12 @@ int64_t strides[] = { 2, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint32_t add( uint32_t x, uint32_t y ) {
+static uint32_t fcn( uint32_t x, uint32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tb_u_as_uu_u( arrays, shape, strides, (void *)add );
+stdlib_strided_tb_u_as_uu_u( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11957,7 +11958,7 @@ void stdlib_strided_tb_u_as_uu_u( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -11975,12 +11976,12 @@ int64_t strides[] = { 2, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tb_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_tb_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -11999,7 +12000,7 @@ void stdlib_strided_tb_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -12017,12 +12018,12 @@ int64_t strides[] = { 2, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tc_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_tc_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12041,7 +12042,7 @@ void stdlib_strided_tc_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -12059,12 +12060,12 @@ int64_t strides[] = { 2, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tc_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_tc_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12083,7 +12084,7 @@ void stdlib_strided_tc_c_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -12101,12 +12102,12 @@ int64_t strides[] = { 2, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tc_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_tc_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12142,12 +12143,12 @@ int64_t strides[] = { 2, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_td_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_td_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12166,7 +12167,7 @@ void stdlib_strided_td_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -12184,12 +12185,12 @@ int64_t strides[] = { 2, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_td_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_td_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12208,7 +12209,7 @@ void stdlib_strided_td_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -12226,12 +12227,12 @@ int64_t strides[] = { 2, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tf_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_tf_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12250,7 +12251,7 @@ void stdlib_strided_tf_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -12268,12 +12269,12 @@ int64_t strides[] = { 2, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tf_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_tf_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12309,12 +12310,12 @@ int64_t strides[] = { 2, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tf_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_tf_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12350,12 +12351,12 @@ int64_t strides[] = { 2, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tf_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_tf_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12391,12 +12392,12 @@ int64_t strides[] = { 2, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tf_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_tf_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12415,7 +12416,7 @@ void stdlib_strided_tf_f_as_ff_f( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -12433,12 +12434,12 @@ int64_t strides[] = { 2, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tf_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_tf_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12474,12 +12475,12 @@ int64_t strides[] = { 2, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ti_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ti_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12515,12 +12516,12 @@ int64_t strides[] = { 2, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ti_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_ti_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12539,7 +12540,7 @@ void stdlib_strided_ti_i_as_ii_i( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -12557,12 +12558,12 @@ int64_t strides[] = { 2, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ti_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ti_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12598,12 +12599,12 @@ int64_t strides[] = { 2, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tk_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_tk_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12639,12 +12640,12 @@ int64_t strides[] = { 2, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tk_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_tk_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12663,7 +12664,7 @@ void stdlib_strided_tk_i_as_ii_i( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -12681,12 +12682,12 @@ int64_t strides[] = { 2, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tk_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_tk_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12722,12 +12723,12 @@ int64_t strides[] = { 2, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ts_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ts_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12763,12 +12764,12 @@ int64_t strides[] = { 2, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ts_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_ts_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12787,7 +12788,7 @@ void stdlib_strided_ts_i_as_ii_i( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -12805,12 +12806,12 @@ int64_t strides[] = { 2, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ts_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ts_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12846,12 +12847,12 @@ int64_t strides[] = { 2, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint16_t add( uint16_t x, uint16_t y ) {
+static uint16_t fcn( uint16_t x, uint16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tt_c( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12870,7 +12871,7 @@ void stdlib_strided_tt_c( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float32.h"
+#include "stdlib/complex/float32/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -12888,12 +12889,12 @@ int64_t strides[] = { 2, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex64_t add( stdlib_complex64_t x, stdlib_complex64_t y ) {
+static stdlib_complex64_t fcn( stdlib_complex64_t x, stdlib_complex64_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tt_c_as_cc_c( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_c_as_cc_c( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12912,7 +12913,7 @@ void stdlib_strided_tt_c_as_cc_c( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -12930,12 +12931,12 @@ int64_t strides[] = { 2, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tt_c_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_c_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -12971,12 +12972,12 @@ int64_t strides[] = { 2, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint16_t add( uint16_t x, uint16_t y ) {
+static uint16_t fcn( uint16_t x, uint16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tt_d( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13012,12 +13013,12 @@ int64_t strides[] = { 2, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tt_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13053,12 +13054,12 @@ int64_t strides[] = { 2, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint16_t add( uint16_t x, uint16_t y ) {
+static uint16_t fcn( uint16_t x, uint16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tt_f( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13094,12 +13095,12 @@ int64_t strides[] = { 2, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tt_f_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_f_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13135,12 +13136,12 @@ int64_t strides[] = { 2, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static float add( float x, float y ) {
+static float fcn( float x, float y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tt_f_as_ff_f( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_f_as_ff_f( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13176,12 +13177,12 @@ int64_t strides[] = { 2, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint16_t add( uint16_t x, uint16_t y ) {
+static uint16_t fcn( uint16_t x, uint16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tt_i( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13217,12 +13218,12 @@ int64_t strides[] = { 2, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static int32_t add( int32_t x, int32_t y ) {
+static int32_t fcn( int32_t x, int32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tt_i_as_ii_i( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_i_as_ii_i( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13258,12 +13259,12 @@ int64_t strides[] = { 2, 2, 2 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint16_t add( uint16_t x, uint16_t y ) {
+static uint16_t fcn( uint16_t x, uint16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tt_t( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_t( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13299,12 +13300,12 @@ int64_t strides[] = { 2, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint16_t add( uint16_t x, uint16_t y ) {
+static uint16_t fcn( uint16_t x, uint16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tt_u( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_u( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13340,12 +13341,12 @@ int64_t strides[] = { 2, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint32_t add( uint32_t x, uint32_t y ) {
+static uint32_t fcn( uint32_t x, uint32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tt_u_as_uu_u( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_u_as_uu_u( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13381,12 +13382,12 @@ int64_t strides[] = { 2, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint16_t add( uint16_t x, uint16_t y ) {
+static uint16_t fcn( uint16_t x, uint16_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tt_z( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13405,7 +13406,7 @@ void stdlib_strided_tt_z( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -13423,12 +13424,12 @@ int64_t strides[] = { 2, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tt_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_tt_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13464,12 +13465,12 @@ int64_t strides[] = { 2, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tu_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_tu_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13505,12 +13506,12 @@ int64_t strides[] = { 2, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint32_t add( uint32_t x, uint32_t y ) {
+static uint32_t fcn( uint32_t x, uint32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_tu_u_as_uu_u( arrays, shape, strides, (void *)add );
+stdlib_strided_tu_u_as_uu_u( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13529,7 +13530,7 @@ void stdlib_strided_tu_u_as_uu_u( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -13547,12 +13548,12 @@ int64_t strides[] = { 2, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tu_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_tu_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13571,7 +13572,7 @@ void stdlib_strided_tu_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -13589,12 +13590,12 @@ int64_t strides[] = { 2, 16, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_tz_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_tz_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13630,12 +13631,12 @@ int64_t strides[] = { 4, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ub_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ub_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13671,12 +13672,12 @@ int64_t strides[] = { 4, 1, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint32_t add( uint32_t x, uint32_t y ) {
+static uint32_t fcn( uint32_t x, uint32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ub_u_as_uu_u( arrays, shape, strides, (void *)add );
+stdlib_strided_ub_u_as_uu_u( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13695,7 +13696,7 @@ void stdlib_strided_ub_u_as_uu_u( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -13713,12 +13714,12 @@ int64_t strides[] = { 4, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ub_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ub_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13737,7 +13738,7 @@ void stdlib_strided_ub_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -13755,12 +13756,12 @@ int64_t strides[] = { 4, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_uc_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_uc_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13796,12 +13797,12 @@ int64_t strides[] = { 4, 8, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ud_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ud_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13820,7 +13821,7 @@ void stdlib_strided_ud_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -13838,12 +13839,12 @@ int64_t strides[] = { 4, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ud_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ud_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13879,12 +13880,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_uf_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_uf_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13903,7 +13904,7 @@ void stdlib_strided_uf_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -13921,12 +13922,12 @@ int64_t strides[] = { 4, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_uf_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_uf_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13962,12 +13963,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ui_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ui_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -13986,7 +13987,7 @@ void stdlib_strided_ui_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14004,12 +14005,12 @@ int64_t strides[] = { 4, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ui_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ui_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14045,12 +14046,12 @@ int64_t strides[] = { 4, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_uk_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_uk_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14069,7 +14070,7 @@ void stdlib_strided_uk_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14087,12 +14088,12 @@ int64_t strides[] = { 4, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_uk_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_uk_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14128,12 +14129,12 @@ int64_t strides[] = { 4, 1, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_us_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_us_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14152,7 +14153,7 @@ void stdlib_strided_us_d_as_dd_d( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14170,12 +14171,12 @@ int64_t strides[] = { 4, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_us_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_us_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14211,12 +14212,12 @@ int64_t strides[] = { 4, 2, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ut_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_ut_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14252,12 +14253,12 @@ int64_t strides[] = { 4, 2, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint32_t add( uint32_t x, uint32_t y ) {
+static uint32_t fcn( uint32_t x, uint32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_ut_u_as_uu_u( arrays, shape, strides, (void *)add );
+stdlib_strided_ut_u_as_uu_u( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14276,7 +14277,7 @@ void stdlib_strided_ut_u_as_uu_u( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14294,12 +14295,12 @@ int64_t strides[] = { 4, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_ut_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_ut_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14335,12 +14336,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint32_t add( uint32_t x, uint32_t y ) {
+static uint32_t fcn( uint32_t x, uint32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_uu_d( arrays, shape, strides, (void *)add );
+stdlib_strided_uu_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14376,12 +14377,12 @@ int64_t strides[] = { 4, 4, 8 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static double add( double x, double y ) {
+static double fcn( double x, double y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_uu_d_as_dd_d( arrays, shape, strides, (void *)add );
+stdlib_strided_uu_d_as_dd_d( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14417,12 +14418,12 @@ int64_t strides[] = { 4, 4, 4 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint32_t add( uint32_t x, uint32_t y ) {
+static uint32_t fcn( uint32_t x, uint32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_uu_u( arrays, shape, strides, (void *)add );
+stdlib_strided_uu_u( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14458,12 +14459,12 @@ int64_t strides[] = { 4, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static uint32_t add( uint32_t x, uint32_t y ) {
+static uint32_t fcn( uint32_t x, uint32_t y ) {
     return x + y;
 }
 
 // Apply the callback:
-stdlib_strided_uu_z( arrays, shape, strides, (void *)add );
+stdlib_strided_uu_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14482,7 +14483,7 @@ void stdlib_strided_uu_z( uint8_t *arrays[], const int64_t *shape, const int64_t
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14500,12 +14501,12 @@ int64_t strides[] = { 4, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_uu_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_uu_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14524,7 +14525,7 @@ void stdlib_strided_uu_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14542,12 +14543,12 @@ int64_t strides[] = { 4, 16, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_uz_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_uz_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14561,12 +14562,54 @@ The function accepts the following arguments:
 void stdlib_strided_uz_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const int64_t *strides, void *fcn );
 ```
 
+#### stdlib_strided_xx_x( \*arrays\[], \*shape, \*strides, \*fcn )
+
+Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
+
+```c
+#include <stdbool.h>
+#include <stdint.h>
+
+// Create underlying byte arrays:
+uint8_t x[] = { 0, 0, 0 };
+uint8_t y[] = { 0, 0, 0 };
+uint8_t out[] = { 0, 0, 0 };
+
+// Define a pointer to an array containing pointers to strided arrays:
+uint8_t *arrays[] = { x, y, out };
+
+// Define the strides:
+int64_t strides[] = { 1, 1, 1 };
+
+// Define the number of elements over which to iterate:
+int64_t shape[] = { 3 };
+
+// Define a callback:
+static bool fcn( bool x, bool y ) {
+    return x && y;
+}
+
+// Apply the callback:
+stdlib_strided_xx_x( arrays, shape, strides, (void *)fcn );
+```
+
+The function accepts the following arguments:
+
+-   **arrays**: `[inout] uint8_t**` array whose first two elements are pointers to strided input arrays and whose last element is a pointer to a strided output array.
+-   **shape**: `[in] int64_t*` array whose only element is the number of elements over which to iterate.
+-   **strides**: `[in] int64_t*` array containing strides (in bytes) for each strided array.
+-   **fcn**: `[in] void*` a `bool (*f)(bool, bool)` function to apply provided as a `void` pointer.
+
+```c
+void stdlib_strided_xx_x( uint8_t *arrays[], const int64_t *shape, const int64_t *strides, void *fcn );
+```
+
 #### stdlib_strided_zb_z_as_zz_z( \*arrays\[], \*shape, \*strides, \*fcn )
 
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14584,12 +14627,12 @@ int64_t strides[] = { 16, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_zb_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_zb_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14608,7 +14651,7 @@ void stdlib_strided_zb_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14626,12 +14669,12 @@ int64_t strides[] = { 16, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_zc_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_zc_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14650,7 +14693,7 @@ void stdlib_strided_zc_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14668,12 +14711,12 @@ int64_t strides[] = { 16, 8, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_zd_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_zd_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14692,7 +14735,7 @@ void stdlib_strided_zd_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14710,12 +14753,12 @@ int64_t strides[] = { 16, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_zf_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_zf_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14734,7 +14777,7 @@ void stdlib_strided_zf_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14752,12 +14795,12 @@ int64_t strides[] = { 16, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_zi_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_zi_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14776,7 +14819,7 @@ void stdlib_strided_zi_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14794,12 +14837,12 @@ int64_t strides[] = { 16, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_zk_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_zk_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14818,7 +14861,7 @@ void stdlib_strided_zk_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14836,12 +14879,12 @@ int64_t strides[] = { 16, 1, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_zs_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_zs_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14860,7 +14903,7 @@ void stdlib_strided_zs_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14878,12 +14921,12 @@ int64_t strides[] = { 16, 2, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_zt_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_zt_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14902,7 +14945,7 @@ void stdlib_strided_zt_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14920,12 +14963,12 @@ int64_t strides[] = { 16, 4, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_zu_z_as_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_zu_z_as_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
@@ -14944,7 +14987,7 @@ void stdlib_strided_zu_z_as_zz_z( uint8_t *arrays[], const int64_t *shape, const
 Applies a binary callback to strided input array elements and assigns results to elements in a strided output array.
 
 ```c
-#include "stdlib/complex/float64.h"
+#include "stdlib/complex/float64/ctor.h"
 #include <stdint.h>
 
 // Create underlying byte arrays:
@@ -14962,12 +15005,12 @@ int64_t strides[] = { 16, 16, 16 };
 int64_t shape[] = { 3 };
 
 // Define a callback:
-static stdlib_complex128_t add( stdlib_complex128_t x, stdlib_complex128_t y ) {
+static stdlib_complex128_t fcn( stdlib_complex128_t x, stdlib_complex128_t y ) {
     // ...
 }
 
 // Apply the callback:
-stdlib_strided_zz_z( arrays, shape, strides, (void *)add );
+stdlib_strided_zz_z( arrays, shape, strides, (void *)fcn );
 ```
 
 The function accepts the following arguments:
