@@ -32,6 +32,7 @@
 
 <details>
 
+-   [`0d4ef60`](https://github.com/stdlib-js/stdlib/commit/0d4ef609d7df182136e5421b5340d92c466afb7c) - **refactor:** reduce code duplication _(by Athan Reines)_
 -   [`599f5e4`](https://github.com/stdlib-js/stdlib/commit/599f5e4435bf9ae550a80162851521095b2410fc) - **feat:** add boolean dtype support to `strided/base/binary` [(#2525)](https://github.com/stdlib-js/stdlib/pull/2525) _(by Jaysukh Makvana, Athan Reines)_
 -   [`cf3f92e`](https://github.com/stdlib-js/stdlib/commit/cf3f92eddd20ec1a4106c8a34f7d7705a9a99dbc) - **fix:** update include paths _(by Athan Reines)_
 -   [`75d4f83`](https://github.com/stdlib-js/stdlib/commit/75d4f83cb85610d23a04dc21a03f8075f6d3665f) - **refactor:** update require and include paths _(by Athan Reines)_
