@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-06-22)
+## Unreleased (2026-06-25)
 
 <section class="commits">
 
@@ -12,6 +12,7 @@
 
 <details>
 
+-   [`ae0704c`](https://github.com/stdlib-js/stdlib/commit/ae0704c8acf3023469ab02686154e26193a601cd) - **docs:** fix typo `PREMABLE` to `PREAMBLE` [(#13130)](https://github.com/stdlib-js/stdlib/pull/13130) _(by anee3)_
 -   [`7b1cb99`](https://github.com/stdlib-js/stdlib/commit/7b1cb991f5525a57cfa7254bb7682060a6d85c7b) - **chore:** use `format` for error messages in strided build scripts [(#12178)](https://github.com/stdlib-js/stdlib/pull/12178) _(by Philipp Burckhardt)_
 -   [`9a829b3`](https://github.com/stdlib-js/stdlib/commit/9a829b3090c6d1662462f32bf494bce378b3f955) - **test:** fix `Complex64` import in `strided/base/binary` [(#12041)](https://github.com/stdlib-js/stdlib/pull/12041) _(by Karan Anand)_
 -   [`dfbed82`](https://github.com/stdlib-js/stdlib/commit/dfbed82e3f09510158b709dad9b0ad73f90beac0) - **bench:** refactor to use string interpolation in `strided/base/binary` [(#10515)](https://github.com/stdlib-js/stdlib/pull/10515) _(by Vishal Gaikwad)_
@@ -26,11 +27,12 @@
 
 ### Contributors
 
-A total of 3 people contributed to this release. Thank you to the following contributors:
+A total of 4 people contributed to this release. Thank you to the following contributors:
 
 -   Karan Anand
 -   Philipp Burckhardt
 -   Vishal Gaikwad
+-   anee3
 
 </section>
 
